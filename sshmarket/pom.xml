@@ -281,12 +281,13 @@
 
 		<!-- proxool public void setHouseKeepingSleepTime(int houseKeepingSleepTime) 
 			{ this.houseKeepingSleepTime = houseKeepingSleepTime; } 方法不对，参数类型为long -->
+		<!-- 下载到本地依赖库，改中间一个类的方法 -->
 		<dependency>
 			<groupId>org.logicalcobwebs.proxool</groupId>
 			<artifactId>proxool</artifactId>
 			<version>0.9.1</version>
 		</dependency>
-
+		<!-- 下载到本地依赖库，改JAR包名字，加上带个版本号 -->
 		<dependency>
 			<groupId>org.logicalcobwebs.proxool</groupId>
 			<artifactId>proxool-cglib</artifactId>
