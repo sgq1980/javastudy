@@ -267,7 +267,18 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework.version}</version>
-			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm-commons</artifactId>
+			<version>2.2.2</version>
 		</dependency>
 
 		<!-- 添加spring依赖 end -->
@@ -405,14 +416,20 @@
 					<exclude>**/*.java</exclude>
 				</excludes>
 			</resource>
+			<resource>
+			<!-- 指定resources目录也作为源目录？以后验证2013-3-15？ -->
+				<directory>${basedir}/resources</directory>
+			</resource>
 		</resources>
 		<plugins>
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
-					<webappDirectory>sshmarket/WebRoot</webappDirectory>
-					<warSourceDirectory>sshmarket/WebRoot</warSourceDirectory>
+					<webappDirectory>${basedir}/WebRoot</webappDirectory>
+					<warSourceDirectory>${basedir}/WebRoot</warSourceDirectory>
+					<!-- 指定web.xml位置 -->
+					<webXml>WebRoot\WEB-INF\web.xml</webXml>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -428,5 +445,5 @@
 		<!-- You must specify a valid lifecycle phase or a goal in the format -->
 		<defaultGoal>compile</defaultGoal>
 	</build>
-	
+
 </project>
