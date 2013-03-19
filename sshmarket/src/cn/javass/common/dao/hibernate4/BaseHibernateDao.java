@@ -19,12 +19,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.*;
 import java.util.Map.Entry;
 
-/**
- * 
- * @author Zhang Kaitao
- *
- * @version 1.0, 2010-8-12
- */
+
 public abstract class BaseHibernateDao<M extends java.io.Serializable, PK extends java.io.Serializable> implements IBaseDao<M, PK> {
 
     protected static final Logger LOGGER = LoggerFactory.getLogger(BaseHibernateDao.class);
@@ -104,7 +99,8 @@ public abstract class BaseHibernateDao<M extends java.io.Serializable, PK extend
         return get(id) != null;
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public M get(PK id) {
         return (M) getSession().get(this.entityClass, id);
     }

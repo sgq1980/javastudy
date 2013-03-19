@@ -41,10 +41,10 @@ public class BackURLFilter implements Filter{
     public static String getMBackURL(HttpServletRequest request, HttpServletResponse response) {
         String basePath = request.getScheme() + "://" + request.getServerName();
         if (request.getServerPort() != 80) {
-            basePath += ":" + request.getServerPort();
+            basePath += ":" + request.getServerPort();//http://localhost:8080
         }
-        String requestURI = request.getRequestURI();
-        String queryString = request.getQueryString();
+        String requestURI = request.getRequestURI();// /sshmarket/到对应的问号之前
+        String queryString = request.getQueryString();//问号后面的参数
 
         String backURL = basePath + requestURI + (queryString == null || queryString.length() == 0 ? "" : "?" + queryString);
 

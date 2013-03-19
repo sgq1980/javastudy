@@ -9,11 +9,7 @@ import cn.javass.demo.dao.UserDao;
 import cn.javass.demo.model.UserModel;
 import cn.javass.demo.model.UserQueryModel;
 
-/**
- * User: Zhang Kaitao
- * Date: 11-12-26 下午4:19
- * Version: 1.0
- */
+
 @Repository("UserDao")
 public class UserHibernate4DaoImpl extends BaseHibernateDao<UserModel, Integer> implements UserDao {
 

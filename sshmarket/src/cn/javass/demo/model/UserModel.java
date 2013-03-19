@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.annotations.Cache;
@@ -19,17 +18,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 import cn.javass.common.model.AbstractModel;
 import cn.javass.common.web.validator.DateFormat;
 
-/**
- * User: Zhang Kaitao
- * Date: 12-1-4 下午3:12
- * Version: 1.0
- */
+
 @Entity
 @Table(name = "tbl_user")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class UserModel extends AbstractModel {
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private int id;

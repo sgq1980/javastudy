@@ -1,13 +1,10 @@
 package cn.javass.demo.service.impl;
 
-import java.util.List;
-import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 
 import cn.javass.common.dao.IBaseDao;
@@ -19,16 +16,14 @@ import cn.javass.demo.model.UserModel;
 import cn.javass.demo.model.UserQueryModel;
 import cn.javass.demo.service.UserService;
 
-/**
- * User: Zhang Kaitao
- * Date: 12-1-4 上午11:06
- * Version: 1.0
- */
+
 
 @Service("UserService")
 public class UserServiceImpl extends BaseService<UserModel, Integer> implements UserService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+    
+    private static volatile int number = 0;
 
     private UserDao userDao;
 
@@ -38,6 +33,9 @@ public class UserServiceImpl extends BaseService<UserModel, Integer> implements 
     public void setBaseDao(IBaseDao<UserModel, Integer> userDao) {
         this.baseDao = userDao;
         this.userDao = (UserDao) userDao;
+        logger.info("userDao**********" +number + "="+userDao.getClass().getSimpleName());
+        System.err.println("userDao**********" +number + "="+userDao.getClass().getSimpleName());
+        
     }
     
 

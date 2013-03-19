@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 /**
- * @author Zhangkaitao
- * @version 1.0
+ * 
  */
 @Controller("indexController")
 public class IndexController {

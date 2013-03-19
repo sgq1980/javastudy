@@ -6,10 +6,17 @@
         <param-name>log4jConfigLocation</param-name>
         <param-value>/WEB-INF/classes/log4j.properties</param-value>
     </context-param>
+    <!-- log4jRefreshInterval为6000表示 开一条watchdog线程每6秒扫描一下配置文件的变化 -->
     <context-param>
         <param-name>log4jRefreshInterval</param-name>
         <param-value>600000</param-value>
     </context-param>
+    <!-- 在tomcat下部署两个或多个项目时，
+    web.xml文件中最好定义webAppRootKey参数，如果不定义，将会缺省为“webapp.root”
+    最好报纸每个项目的参数值不同，以免引起项目冲突
+ 严重: Exception sending context initialized event to listener instance of class org.springframework.web.util.Log4jConfigListener -->
+ <!-- 定义以后，在Web Container启动时将把ROOT的绝对路径写到系统变量里。
+然后log4j的配置文件里就可以用${javass.webapp.root}来表示Web目录的绝对路径，把log文件存放于webapp中。 -->
     <context-param>
         <param-name>webAppRootKey</param-name>
         <param-value>javass.webapp.root</param-value>
